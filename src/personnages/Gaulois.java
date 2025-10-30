@@ -41,4 +41,23 @@ public class Gaulois {
 	public void boirePotion(int forcePotion) {
 		effetPotion= forcePotion;
 	}
+	
+	public void sePresenter() {
+		System.out.print("Le Gaulois " + nom + " : ");
+		if (this instanceof Chef) {
+			// Cas du chef
+			System.out.println("\"Bonjour, je m'appelle " + nom + 
+				". Je suis le chef du village " + ((Chef)this).getVillage().getNom() + ".\"");
+		} else if (village != null) {
+			// Cas d’un habitant avec un village
+			System.out.println("\"Bonjour, je m'appelle " + nom + 
+				". J'habite le village " + village.getNom() + ".\"");
+		} else {
+			// Cas d’un gaulois sans village
+			System.out.println("\"Bonjour, je m'appelle " + nom + 
+				". Je voyage de villages en villages.\"");
+		}
+	}
+
 }
+
