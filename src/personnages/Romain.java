@@ -6,52 +6,52 @@ public class Romain {
 	private int force;
 	private Equipement[] equipements = new Equipement[2];
 	private int nbEquipement = 0;
-	
+
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
 	}
-	
+
 	public String getNom() {
 		return nom;
 	}
-	
+
 	@Override
 	public String toString() {
-	    return nom;
+		return nom;
 	}
-	
+
 	public void parler(String texte) {
 		System.out.println(prendreParole() + "\"" + texte + "\"");
 	}
-	
+
 	private String prendreParole() {
-		return  "Le romain " + nom + " : ";
+		return "Le romain " + nom + " : ";
 	}
-	
+
 	private boolean isInvariantVerified() {
 		return force >= 0;
 	}
-	
+
 	public void recevoirCoup(int forceCoup) {
 		assert forceCoup > 0 : "Erreur : la force du coup doit être positive !";
 		int ancienneForce = force; // pour la postcondition
-		
+
 		force -= forceCoup;
 		if (force < 1) {
-		force = 0;
-		parler("J'abandonne !");
+			force = 0;
+			parler("J'abandonne !");
 		} else {
-		parler("Aïe");
+			parler("Aïe");
 		}
-		
+
 		// 🔹 Postcondition : la force du Romain a diminué (sauf si elle était déjà à 0)
 		assert force <= ancienneForce : "Erreur : la force du Romain n’a pas diminué après le coup !";
 
 		// 🔹 Vérification de l’invariant à la fin de la méthode
 		assert isInvariantVerified() : "Erreur : invariant violé, la force est négative !";
 	}
-	
+
 	// Méthode sEquiper
 	public void sEquiper(Equipement equipement) {
 		switch (nbEquipement) {
