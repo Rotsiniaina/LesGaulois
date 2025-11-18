@@ -10,7 +10,7 @@ public class Druide {
 		this.nom = nom;
 		this.force = force;
 		this.chaudron = new Chaudron();
-	}
+	}  
 
 	public String getNom() {
 		return nom;

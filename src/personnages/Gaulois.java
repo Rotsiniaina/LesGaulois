@@ -4,10 +4,19 @@ public class Gaulois {
 	private String nom;
 	private int force;
 	private int effetPotion = 1;
+	private Village village;
 
 	public Gaulois(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
+	}
+	
+	public void setVillage(Village village) {
+	    this.village = village;
+	}
+
+	public Village getVillage() {
+	    return village;
 	}
 
 	public String getNom() {
@@ -29,7 +38,7 @@ public class Gaulois {
 
 	@Override
 	public String toString() {
-		return nom;
+		return nom;  
 	}
 
 	public void frapper(Romain romain) {

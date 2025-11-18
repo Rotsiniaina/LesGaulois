@@ -3,16 +3,17 @@ package personnages;
 public class Village {
 
 	private String nom;
-	private int nbVillageois = 0;
-	private Chef chef;
-	private Gaulois[] villageois;
-	private final int NB_VILLAGEOIS_MAX;
+    private int nbVillageois = 0;
+    private Chef chef;
+    private Gaulois[] villageois;
+    private final int NB_VILLAGEOIS_MAX;
 
-	private Village(String nom, int nbVillageois, Chef chef, Gaulois[] villageois) {
-		this.nom = nom;
-		this.nbVillageois = nbVillageois;
-		this.chef = chef;
-		this.villageois = new Gaulois[nbVillageoisMax];
+    public Village(String nom, int nbVillageoisMax, Chef chef) {
+        this.nom = nom;
+        this.NB_VILLAGEOIS_MAX = nbVillageoisMax;
+        this.nbVillageois = 0;
+        this.chef = chef;
+        this.villageois = new Gaulois[NB_VILLAGEOIS_MAX];
 	}
 
 	public String getNom() {
@@ -49,10 +50,10 @@ public class Village {
 	}
 
 	public static void main(String[] args) {
-		Chef Abraracourcix = new Chef("Abraracourcix", 6, null);
+		Chef abraracourcix = new Chef("Abraracourcix", 6);
 
-		Village village = new Village("Village des Irréductibles", 30, Abraracourcix);
-
+		Village village = new Village("Village des Irréductibles", 30, abraracourcix);
+		
 		Gaulois asterix = new Gaulois("Astérix", 8);
 		village.ajouterVillageois(asterix);
 

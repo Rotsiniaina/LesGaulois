@@ -19,7 +19,7 @@ public class Chaudron {
             quantitePotion--;
             return forcePotion;
 		}
-        else 
+        else   
             return 0;
 	}
 		

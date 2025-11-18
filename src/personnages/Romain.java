@@ -1,4 +1,5 @@
 package personnages;
+import objets.Equipement;
 
 public class Romain {
 
@@ -35,8 +36,7 @@ public class Romain {
 
 	public void recevoirCoup(int forceCoup) {
 		assert forceCoup > 0 : "Erreur : la force du coup doit être positive !";
-		int ancienneForce = force; // pour la postcondition
-
+		int ancienneForce = force; 
 		force -= forceCoup;
 		if (force < 1) {
 			force = 0;
@@ -45,14 +45,11 @@ public class Romain {
 			parler("Aïe");
 		}
 
-		// 🔹 Postcondition : la force du Romain a diminué (sauf si elle était déjà à 0)
 		assert force <= ancienneForce : "Erreur : la force du Romain n’a pas diminué après le coup !";
 
-		// 🔹 Vérification de l’invariant à la fin de la méthode
 		assert isInvariantVerified() : "Erreur : invariant violé, la force est négative !";
 	}
 
-	// Méthode sEquiper
 	public void sEquiper(Equipement equipement) {
 		switch (nbEquipement) {
 		case 2:
@@ -74,24 +71,20 @@ public class Romain {
 		}
 	}
 
-	// Méthode privée pour éviter le code dupliqué
 	private void ajouterEquipement(Equipement equipement) {
 		equipements[nbEquipement] = equipement;
 		nbEquipement++;
 		System.out.println("Le soldat " + nom + " s'équipe avec un " + equipement + ".");
 	}
 
-	// MAIN pour tester
+
 	public static void main(String[] args) {
-		// Test affichage des énumérés
 		System.out.println(Equipement.CASQUE);
 		System.out.println(Equipement.BOUCLIER);
 		System.out.println();
 
-		// Création d'un Romain
 		Romain minus = new Romain("Minus", 6);
 
-		// Tests de sEquiper
 		minus.sEquiper(Equipement.CASQUE);
 		minus.sEquiper(Equipement.CASQUE);
 		minus.sEquiper(Equipement.BOUCLIER);
