@@ -70,4 +70,21 @@ public class Romain {
     public String toString() {
         return nom;
     }
+
+    public static void main(String[] args) {
+        System.out.println(Equipement.CASQUE);
+        System.out.println(Equipement.BOUCLIER);
+        System.out.println();
+    
+        Romain minus = new Romain("Minus", 6);
+    
+        minus.sEquiper(Equipement.CASQUE);
+        minus.sEquiper(Equipement.CASQUE);
+        minus.sEquiper(Equipement.BOUCLIER);
+        minus.sEquiper(Equipement.CASQUE);
+    
+        minus.recevoirCoup(3);
+        minus.recevoirCoup(5);
+    }
+
 }
