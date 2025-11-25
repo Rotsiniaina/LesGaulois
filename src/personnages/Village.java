@@ -44,4 +44,31 @@ public class Village {
             System.out.println("- " + villageois[i].getNom());
         }
     }
+
+    public static void main(String[] args) {
+        Gaulois abraracourcix = new Gaulois("Abraracourcix", 6);
+        Village village = new Village("Village des Irréductibles", 30, abraracourcix);
+        Gaulois gauloisTest = village.trouverVillageois(30);
+        System.out.println(gauloisTest);
+    
+        Gaulois asterix = new Gaulois("Astérix", 8);
+        village.ajouterVillageois(asterix);
+    
+        Gaulois gaulois1 = village.trouverVillageois(1);
+        System.out.println(gaulois1);
+        Gaulois gaulois2 = village.trouverVillageois(2);
+        System.out.println(gaulois2);
+    
+        village.afficherVillageois();
+    
+        Gaulois obelix = new Gaulois("Obélix", 25);
+        village.ajouterVillageois(obelix);
+    
+        Gaulois doublePolemix = new Gaulois("DoublePolémix", 4);
+    
+        abraracourcix.sePresenter();
+        asterix.sePresenter();
+        doublePolemix.sePresenter();
+    }
+
 }
